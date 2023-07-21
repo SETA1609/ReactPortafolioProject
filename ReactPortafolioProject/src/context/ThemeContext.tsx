@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 
+type ThemeUpdateFunction = () => void;
 const ThemeContext = React.createContext<boolean>(true);
+const ThemeUpdateContext = React.createContext<ThemeUpdateFunction | undefined>(undefined);
 interface ThemeProviderProps {
     children: React.ReactNode;
 }
@@ -12,7 +14,10 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
 
     return (
         <ThemeContext.Provider value={isDarkTheme}>
-            {children}
+            <ThemeUpdateContext.Provider value={toggleTheme}>
+                {children}
+            </ThemeUpdateContext.Provider>
+
         </ThemeContext.Provider>
     )
 }

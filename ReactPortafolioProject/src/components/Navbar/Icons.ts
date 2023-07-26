@@ -1,28 +1,28 @@
-import github from "ReactPortafolioProject/src/assets/Icons/github-142-svgrepo-com.svg";
-import linkedin from "ReactPortafolioProject/src/assets/Icons/linkedin-svgrepo-com.svg";
-import stackoverflow from "ReactPortafolioProject/src/assets/Icons/stack-overflow-fill-svgrepo-com.svg";
-import mail from 'ReactPortafolioProject/src/assets/Icons/mail-svgrepo-com.svg';
+import { GithubIcon } from "./icons/github.svg";
+import { LinkedinIcon } from "./icons/linkedin.svg";
+import { StackOverflowIcon } from "./icons/stack.svg";
+import { MailIcon } from './icons/mail.svg';
 
 interface Icon {
-    icon: string;
-    url: string;
-  }
+  icon: React.ReactNode;
+  url: string;
+}
 
 const Icons: Icon[] = [
   {
-    icon: github,
+    icon: <GithubIcon/> ,
     url: "https://github.com/SETA1609",
   },
   {
-    icon: linkedin,
+    icon: <LinkedinIcon/> ,
     url: "https://www.linkedin.com/in/sebastian-tamayo-5238241ab/",
   },
   {
-    icon: stackoverflow,
+    icon: <StackOverflowIcon />,
     url: "https://stackoverflow.com/users/22202650/seta1609",
   },
   {
-    icon: mail,
+    icon: <MailIcon />,
     url: "",
   },
 ];

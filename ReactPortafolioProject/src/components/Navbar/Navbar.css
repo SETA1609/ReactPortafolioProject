@@ -1,15 +1,32 @@
-header{
+header {
     background-color: black;
     color: azure;
     display: flex;
     height: 50px;
-}
-
-nav{
-flex-direction: row;
-align-items: center;
-}
-
-li{
-    color: aliceblue;
-}
+  }
+  
+  nav {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  ul {
+    display: inline-flex;
+  }
+  
+  li {
+    color: white; /* Change the color of the list items to white */
+  }
+  
+  a {
+    display: block; /* Make the links fill the entire list item */
+    padding: 10px; /* Adjust the padding as needed */
+  }
+  
+  /* Add this CSS to target the SVG icons inside the links and make them white */
+  a svg {
+    fill: white;
+    height: 15px; /* Set the height of the SVGs as needed */
+    width: 15px; /* Set the width of the SVGs as needed */
+  }
+  

@@ -1,25 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Footer/Footer'
-import LandingPage from './components/LandingPage/LandingPage'
-import Projects from './components/Projects/Projects'
-import ContactForm from './components/ContactForm/ContactForm'
+import React from "react";
+import { ChakraProvider } from "@chakra-ui/react";
+import Header from "./components/Header";
+import LandingSection from "./components/LandingSection";
+import ProjectsSection from "./components/ProjectsSection";
+import ContactMeSection from "./components/ContactMeSection";
+import Footer from "./components/Footer";
+import { AlertProvider } from "./context/alertContext";
+import Alert from "./components/Alert";
 
-function App() {
-
-
+function App(): JSX.Element {
   return (
-    <div>
-        <Navbar/>
-        <LandingPage/>
-        <Projects/>
-        <ContactForm/>
-        <Footer/>
-    </div>
-  )
+    <ChakraProvider>
+      <AlertProvider>
+        <main>
+          <Header />
+          <LandingSection />
+          <ProjectsSection />
+          <ContactMeSection />
+          <Footer />
+          <Alert />
+        </main>
+      </AlertProvider>
+    </ChakraProvider>
+  );
 }
 
-export default App
+export default App;
+

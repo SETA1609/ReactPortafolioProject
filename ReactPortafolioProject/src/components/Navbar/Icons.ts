@@ -1,28 +1,34 @@
-import { GithubIcon } from "./icons/github.svg";
-import { LinkedinIcon } from "./icons/linkedin.svg";
-import { StackOverflowIcon } from "./icons/stack.svg";
-import { MailIcon } from './icons/mail.svg';
+import React, { useEffect, useRef } from "react";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGithub,
+  faLinkedin,
+  faMedium,
+  faStackOverflow,
+} from "@fortawesome/free-brands-svg-icons";
 
-interface Icon {
-  icon: React.ReactNode;
-  url: string;
+interface SocialIcon{
+  icon:IconDefinition;
+  url:string
 }
 
-const Icons: Icon[] = [
+const Icons: SocialIcon[] = [
   {
-    icon: <GithubIcon/> ,
+    icon: faGithub,
     url: "https://github.com/SETA1609",
   },
   {
-    icon: <LinkedinIcon/> ,
+    icon: faLinkedin,
     url: "https://www.linkedin.com/in/sebastian-tamayo-5238241ab/",
   },
   {
-    icon: <StackOverflowIcon />,
+    icon: faStackOverflow,
     url: "https://stackoverflow.com/users/22202650/seta1609",
   },
   {
-    icon: <MailIcon />,
+    icon: faEnvelope,
     url: "",
   },
 ];

@@ -29,7 +29,7 @@ const Icons: SocialIcon[] = [
   },
   {
     icon: faEnvelope,
-    url: "",
+    url: "mailto:contacme1609everytime.altitude036@aleeas.com",
   },
 ];
 

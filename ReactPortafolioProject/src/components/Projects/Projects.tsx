@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import"./Projects.css";
 import fetchProjectData, {Project} from "./ProjectsData.ts";
 import Card from "./cards/Card.tsx"
+
 function Projects() {
     const [projects, setProjects] = useState<Project[]>([]);
 
@@ -16,14 +17,14 @@ function Projects() {
 
     return (
         <div className='projects'>
-            {projects.map((project, index) => (
+            {/*projects.map((project, index) => (
                 <Card
                     key={index}
                     title={project.title}
                     body={project.body}
                     photo={project.photo}
                 />
-            ))}
+            ))*/}
         </div>
     );
 }

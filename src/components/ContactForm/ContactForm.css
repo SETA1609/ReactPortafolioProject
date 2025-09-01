@@ -1,0 +1,15 @@
+.form {
+  min-height: 100vh;
+  width: 100%;
+  background-color: burlywood;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 300px;
+}

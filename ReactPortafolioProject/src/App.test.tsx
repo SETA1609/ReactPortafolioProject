@@ -1,16 +1,8 @@
-import App from "./App";
-import{describe,expect,it}from"vitest";
+import { describe, it, expect } from 'vitest';
+import App from './App';
 
-describe("description", ()=>{
-it("description", ()=>{
-expect(function()).toBe(result)
-})
-})
-
-/**
- * describe("description", ()=>{
-it("description", ()=>{
-expect(function()).toBe(result)
-})
-})
- */
+describe('App', () => {
+  it('is defined', () => {
+    expect(App).toBeDefined();
+  });
+});

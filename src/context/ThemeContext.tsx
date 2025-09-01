@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 type ThemeUpdateFunction = () => void;
 const ThemeContext = React.createContext<boolean>(true);
@@ -13,6 +13,11 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   function toggleTheme() {
     setDarkTheme(prevDarkTheme => !prevDarkTheme);
   }
+
+  useEffect(() => {
+    document.body.classList.toggle('dark', isDarkTheme);
+    document.body.classList.toggle('light', !isDarkTheme);
+  }, [isDarkTheme]);
 
   return (
     <ThemeContext.Provider value={isDarkTheme}>

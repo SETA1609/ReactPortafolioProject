@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import i18n from '../i18n';
 
 type Language = 'en' | 'es';
 
@@ -18,6 +19,10 @@ export const useSetLanguage = () => {
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('en');
+
+  useEffect(() => {
+    void i18n.changeLanguage(language);
+  }, [language]);
 
   return (
     <LanguageContext.Provider value={language}>

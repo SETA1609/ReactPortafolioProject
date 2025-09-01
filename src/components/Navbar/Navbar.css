@@ -25,16 +25,20 @@ header {
 }
 
 .icons-list a,
-.links a {
+.links a,
+.links button {
     display: block;
     padding: 10px;
     text-decoration: none;
     color: white;
 }
 
-.links li:last-child {
-    margin-left: 0; /* Remove margin for the last link */
+.links button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }
+
 
 a svg {
     fill: white;

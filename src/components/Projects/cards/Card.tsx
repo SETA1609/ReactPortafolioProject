@@ -1,5 +1,5 @@
 import React from 'react';
-import './Card.css';
+import { useTranslation } from 'react-i18next';
 
 interface CardProps {
   title: string;
@@ -9,19 +9,17 @@ interface CardProps {
 }
 
 function Card({ title, body, photo, link }: CardProps) {
+  const { t } = useTranslation();
   return (
-    <div className="card">
-      {photo && (
-        <div className="card-image">
-          <img src={photo} alt={title} />
-        </div>
-      )}
-      <h3>{title}</h3>
-      <p>{body}</p>
-
-      <a href={link} target="_blank">
-      Read More
-      </a>
+    <div className="card h-100">
+      {photo && <img src={photo} className="card-img-top" alt={title} />}
+      <div className="card-body d-flex flex-column">
+        <h5 className="card-title">{title}</h5>
+        <p className="card-text">{body}</p>
+        <a href={link} target="_blank" className="mt-auto btn btn-primary" rel="noreferrer">
+          {t('card.readMore')}
+        </a>
+      </div>
     </div>
   );
 }

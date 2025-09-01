@@ -1,17 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import {
-  faGithub,
-  faLinkedin,
-  faMedium,
-  faStackOverflow,
-} from "@fortawesome/free-brands-svg-icons";
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
 
-interface SocialIcon{
-  icon:IconDefinition;
-  url:string
+interface SocialIcon {
+  icon: IconDefinition;
+  url: string;
 }
 
 const Icons: SocialIcon[] = [

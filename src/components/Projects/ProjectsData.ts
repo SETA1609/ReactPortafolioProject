@@ -12,6 +12,7 @@ const repos = [
   'https://github.com/SETA1609/LottoAufgabe',
   'https://github.com/SETA1609/vag',
   'https://github.com/SETA1609/End-Projekt-AW',
+  'https://github.com/SETA1609/ReactPortafolioProject',
 ];
 
 interface RepoResponse {

@@ -1,15 +1,15 @@
 interface Link {
-  name: string;
+  key: string;
   url: string;
 }
 
 const InnerLinks: Link[] = [
   {
-    name: 'Projects',
+    key: 'projects',
     url: '#projects',
   },
   {
-    name: 'Contact me',
+    key: 'contact',
     url: '#contact',
   },
 ];

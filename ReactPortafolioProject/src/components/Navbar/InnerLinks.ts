@@ -1,19 +1,17 @@
-interface links{
-	
-	name:string
-	url:string
-
+interface Link {
+  name: string;
+  url: string;
 }
 
-const InnerLinks: links[]=[
-	{
-		name:"Projects",
-		url:""
-	},
-	{
-		name:"Contact me",
-		url:""
-	}
-]
+const InnerLinks: Link[] = [
+  {
+    name: 'Projects',
+    url: '#projects',
+  },
+  {
+    name: 'Contact me',
+    url: '#contact',
+  },
+];
 
-export default  InnerLinks;
+export default InnerLinks;

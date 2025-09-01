@@ -3,22 +3,37 @@ import React, { useState, useContext } from 'react';
 type ThemeUpdateFunction = () => void;
 const ThemeContext = React.createContext<boolean>(true);
 const ThemeUpdateContext = React.createContext<ThemeUpdateFunction | undefined>(undefined);
+
 interface ThemeProviderProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
+
 export function ThemeProvider({ children }: ThemeProviderProps) {
-    const [isDarkTheme, setDarkTheme] = useState<boolean>(true);
-    function toggleTheme() {
-        setDarkTheme(prevDarkTheme => !prevDarkTheme)
-    }
+  const [isDarkTheme, setDarkTheme] = useState<boolean>(true);
+  function toggleTheme() {
+    setDarkTheme(prevDarkTheme => !prevDarkTheme);
+  }
 
-    return (
-        <ThemeContext.Provider value={isDarkTheme}>
-            <ThemeUpdateContext.Provider value={toggleTheme}>
-                {children}
-            </ThemeUpdateContext.Provider>
+  return (
+    <ThemeContext.Provider value={isDarkTheme}>
+      <ThemeUpdateContext.Provider value={toggleTheme}>
+        {children}
+      </ThemeUpdateContext.Provider>
+    </ThemeContext.Provider>
+  );
+}
 
-        </ThemeContext.Provider>
-    )
+// eslint-disable-next-line react-refresh/only-export-components
+export function useTheme(): boolean {
+  return useContext(ThemeContext);
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function useThemeUpdate(): ThemeUpdateFunction {
+  const context = useContext(ThemeUpdateContext);
+  if (!context) {
+    throw new Error('useThemeUpdate must be used within a ThemeProvider');
+  }
+  return context;
 }
 

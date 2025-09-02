@@ -15,15 +15,20 @@
     "readMore": "Mehr erfahren"
   },
   "contact": {
+    "title":"Kontaktieren Sie mich",
     "name": "Name",
     "email": "E-Mail",
     "type": {
       "hireMe": "Freelance-Projektvorschlag",
       "openSource": "Open-Source-Beratung",
-      "other": "Andere"
+      "other": "Andere",
+      "label": "Art der Anfrage"
     },
     "message": "Deine Nachricht",
     "submit": "Senden"
   },
-  "footer": "Fußzeile"
+  "footer": "Fußzeile",
+  "project":{
+	  "title": "Projekten"
+  }
 }

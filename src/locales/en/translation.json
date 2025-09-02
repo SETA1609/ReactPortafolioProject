@@ -15,15 +15,20 @@
     "readMore": "Read More"
   },
   "contact": {
+	"title":"Contact me!",
     "name": "Name",
     "email": "Email",
     "type": {
       "hireMe": "Freelance project proposal",
       "openSource": "Open source consultancy session",
+      "label": "Type of inquiry",
       "other": "Other"
     },
     "message": "Your message",
     "submit": "Submit"
   },
-  "footer": "footer"
+  "footer": "footer",
+  "project":{
+	  "title": "Projects"
+  }
 }

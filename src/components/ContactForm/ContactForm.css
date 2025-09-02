@@ -11,12 +11,31 @@
 .form form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  width: 400px;
+  gap: 15px;  
+  width: 90%; 
+}
+
+.form form label {
+  font-weight: bold; 
+  margin-bottom: 5px; 
 }
 
 .form form input,
 .form form select,
 .form form textarea {
   width: 100%;
+  padding: 10px; 
+  border: 1px solid var(--text-color); 
+  border-radius: 4px; 
 }
+
+.form form input[type="text"],
+.form form input[type="email"] {
+  height: 45px; 
+}
+
+.form form textarea {
+  min-height: 60%; 
+  resize: vertical; 
+}
+

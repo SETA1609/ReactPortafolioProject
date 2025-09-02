@@ -1,9 +1,25 @@
 body.light {
+  --text-color: #000000;
+  --landing-bg: #dcd0ff;
+  --projects-bg: #a0ffe6;
+  --contact-bg: #ffe4c4;
+  --navbar-bg: #f0f0f0;
+  --navbar-color: #000000;
+  --footer-bg: #f0f0f0;
+  --footer-color: #000000;
   background-color: #ffffff;
-  color: #000000;
+  color: var(--text-color);
 }
 
 body.dark {
+  --text-color: #ffffff;
+  --landing-bg: #4b0082;
+  --projects-bg: #006d6d;
+  --contact-bg: #8b4513;
+  --navbar-bg: #000000;
+  --navbar-color: #ffffff;
+  --footer-bg: #000000;
+  --footer-color: #ffffff;
   background-color: #000000;
-  color: #ffffff;
+  color: var(--text-color);
 }

@@ -1,5 +1,5 @@
-footer{
-background-color: black;
-color: beige;
-height: 50px;
+footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-color);
+  height: 50px;
 }

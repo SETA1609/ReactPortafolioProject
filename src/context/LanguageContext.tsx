@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import i18n from '../i18n';
 
-type Language = 'en' | 'es';
+export type Language = 'en' | 'es' | 'de';
 
 const LanguageContext = createContext<Language>('en');
 const LanguageUpdateContext = createContext<((lang: Language) => void) | undefined>(undefined);

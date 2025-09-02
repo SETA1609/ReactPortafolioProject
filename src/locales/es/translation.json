@@ -1,0 +1,29 @@
+{
+  "greeting": "Hola, soy Sebastian!",
+  "description": "Un desarrollador fullstack especializado en Springboot, React, Angular y Django",
+  "nav": {
+    "projects": "Proyectos",
+    "contact": "Contáctame",
+    "toggleTheme": "Cambiar tema",
+    "language": {
+      "en": "EN",
+      "es": "ES",
+      "de": "DE"
+    }
+  },
+  "card": {
+    "readMore": "Leer más"
+  },
+  "contact": {
+    "name": "Nombre",
+    "email": "Correo",
+    "type": {
+      "hireMe": "Propuesta de proyecto freelance",
+      "openSource": "Sesión de consultoría de código abierto",
+      "other": "Otro"
+    },
+    "message": "Tu mensaje",
+    "submit": "Enviar"
+  },
+  "footer": "pie de página"
+}

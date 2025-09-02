@@ -5,14 +5,16 @@ import InnerLinks from './InnerLinks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTranslation } from 'react-i18next';
 import { useThemeUpdate } from '../../context/ThemeContext';
-import { useLanguage, useSetLanguage } from '../../context/LanguageContext';
+import { useLanguage, useSetLanguage, Language } from '../../context/LanguageContext';
+
+const languages: Language[] = ['en', 'es', 'de'];
 
 function Navbar() {
   const { t } = useTranslation();
   const toggleTheme = useThemeUpdate();
   const language = useLanguage();
   const setLanguage = useSetLanguage();
-  const nextLang = language === 'en' ? 'es' : 'en';
+  const nextLang = languages[(languages.indexOf(language) + 1) % languages.length];
 
   return (
     <header>
@@ -36,7 +38,7 @@ function Navbar() {
             <button onClick={toggleTheme}>{t('nav.toggleTheme')}</button>
           </li>
           <li>
-            <button onClick={() => setLanguage(nextLang)}>{t('nav.toggleLanguage')}</button>
+            <button onClick={() => setLanguage(nextLang)}>{t(`nav.language.${nextLang}`)}</button>
           </li>
         </ul>
       </nav>

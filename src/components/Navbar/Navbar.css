@@ -1,7 +1,8 @@
 header {
-    background-color: black;
-    color: azure;
+    background-color: var(--navbar-bg);
+    color: var(--navbar-color);
     height: 50px;
+    z-index: 10;
 }
 
 .navbar {
@@ -30,7 +31,7 @@ header {
     display: block;
     padding: 10px;
     text-decoration: none;
-    color: white;
+    color: var(--navbar-color);
 }
 
 .links button {
@@ -41,7 +42,7 @@ header {
 
 
 a svg {
-    fill: white;
+    fill: var(--navbar-color);
     height: 15px;
     width: 15px;
 }

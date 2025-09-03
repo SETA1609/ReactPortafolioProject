@@ -1,50 +1,71 @@
 import React from 'react';
-import './Navbar.css';
 import Icons from './Icons';
 import InnerLinks from './InnerLinks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTranslation } from 'react-i18next';
-import { useThemeUpdate } from '../../context/ThemeContext';
+import { useTheme, useThemeUpdate } from '../../context/ThemeContext';
 import { useLanguage, useSetLanguage, Language } from '../../context/LanguageContext';
 
 const languages: Language[] = ['en', 'es', 'de'];
 
-function Navbar() {
+const Navbar: React.FC = () => {
   const { t } = useTranslation();
+  const isDarkTheme = useTheme();
   const toggleTheme = useThemeUpdate();
   const language = useLanguage();
   const setLanguage = useSetLanguage();
-  const nextLang = languages[(languages.indexOf(language) + 1) % languages.length];
 
   return (
-    <header>
-      <nav className="navbar">
-        <ul className="icons-list">
+    <header className={`bg-${isDarkTheme ? 'dark' : 'light'} text-${isDarkTheme ? 'light' : 'dark'}`}>
+      <nav className="container d-flex justify-content-between align-items-center py-2">
+        <ul className="list-unstyled d-flex mb-0">
           {Icons.map((icon, index) => (
-            <li key={index}>
-              <a href={icon.url}>
+            <li key={index} className="ms-3">
+              <a href={icon.url} className={`text-${isDarkTheme ? 'light' : 'dark'}`}>
                 <FontAwesomeIcon icon={icon.icon} />
               </a>
             </li>
           ))}
         </ul>
-        <ul className="links">
+        <ul className="list-unstyled d-flex mb-0">
           {InnerLinks.map((link, index) => (
-            <li key={index}>
-              <a href={link.url}>{t(`nav.${link.key}`)}</a>
+            <li key={index} className="ms-3">
+              <a href={link.url} className={`text-${isDarkTheme ? 'light' : 'dark'}`}>
+                {t(`nav.${link.key}`)}
+              </a>
             </li>
           ))}
-          <li>
-            <button onClick={toggleTheme}>{t('nav.toggleTheme')}</button>
+          <li className="ms-3">
+            <button
+              className={`btn btn-${isDarkTheme ? 'light' : 'dark'}`}
+              onClick={toggleTheme}
+            >
+              {t('nav.toggleTheme')}
+            </button>
           </li>
-          <li>
-            <button onClick={() => setLanguage(nextLang)}>{t(`nav.language.${nextLang}`)}</button>
+          <li className="ms-3 dropdown">
+            <button
+              className={`btn btn-${isDarkTheme ? 'light' : 'dark'} dropdown-toggle`}
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              {t(`nav.language.${language}`)}
+            </button>
+            <ul className="dropdown-menu">
+              {languages.map(lang => (
+                <li key={lang}>
+                  <button className="dropdown-item" onClick={() => setLanguage(lang)}>
+                    {t(`nav.language.${lang}`)}
+                  </button>
+                </li>
+              ))}
+            </ul>
           </li>
         </ul>
       </nav>
     </header>
   );
-}
+};
 
 export default Navbar;
 

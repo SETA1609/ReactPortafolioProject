@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Icons from './Icons';
 import InnerLinks from './InnerLinks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTranslation } from 'react-i18next';
 import { useTheme, useThemeUpdate } from '../../context/ThemeContext';
 import { useLanguage, useSetLanguage, Language } from '../../context/LanguageContext';
+import './Navbar.css';
 
 const languages: Language[] = ['en', 'es', 'de'];
 
@@ -15,11 +16,28 @@ const Navbar: React.FC = () => {
   const language = useLanguage();
   const setLanguage = useSetLanguage();
 
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY > lastScrollY.current && currentY > 0) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-  <div ClassName="container">
+  <div className="container">
     <nav
-      className={`navbar navbar-${isDarkTheme ? 'dark' : 'light'}  
-      text-${isDarkTheme ? 'light' : 'dark'} navbar-expand-lg py-3`}>
+      className={`navbar fixed-top navbar-${isDarkTheme ? 'dark' : 'light'} text-${isDarkTheme ? 'light' : 'dark'} navbar-expand-lg py-3 ${hidden ? 'navbar-hidden' : ''}`}>
       <div className="container-fluid">
         <ul className="navbar-nav me-auto mb-0 align-items-center flex-row flex-nowrap">
           {Icons.map((icon, index) => (
@@ -48,20 +66,20 @@ const Navbar: React.FC = () => {
         </button>
 
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul className="navbar-nav mb-0 align-items-lg-center">
+          <ul className="navbar-nav mb-0 align-items-lg-center d-flex gap-2">
             {InnerLinks.map((link, index) => (
-              <li key={index} className="nav-item me-1">
+              <li key={index} className="nav-item">
                 <a
                   href={link.url}
-                  className={`btn btn-${isDarkTheme ? 'light' : 'dark'} w-100 w-lg-auto mx-1 my-1 my-lg-0`}
+                  className={`btn btn-${isDarkTheme ? 'light' : 'dark'} w-100 w-lg-auto my-1 my-lg-0`}
                 >
                   {t(`nav.${link.key}`)}
                 </a>
               </li>
             ))}
-            <li className="nav-item ms-1">
+            <li className="nav-item">
               <button
-                className={`btn btn-${isDarkTheme ? 'light' : 'dark'} w-100 w-lg-auto mx-1 my-1 my-lg-0`}
+                className={`btn btn-${isDarkTheme ? 'light' : 'dark'} w-100 w-lg-auto my-1 my-lg-0`}
                 onClick={toggleTheme}
               >
                 {t('nav.toggleTheme')}
@@ -69,7 +87,7 @@ const Navbar: React.FC = () => {
             </li>
             <li className="nav-item dropdown">
               <button
-                className={`btn btn-${isDarkTheme ? 'light' : 'dark'} dropdown-toggle w-100 w-lg-auto mx-1 my-1 my-lg-0`}
+                className={`btn btn-${isDarkTheme ? 'light' : 'dark'} dropdown-toggle w-100 w-lg-auto my-1 my-lg-0`}
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >

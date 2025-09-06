@@ -25,10 +25,15 @@
       "label": "Art der Anfrage"
     },
     "message": "Deine Nachricht",
-    "submit": "Senden"
+    "submit": "Senden",
+    "errors": {
+      "name": "Name ist erforderlich",
+      "email": "Gültige E-Mail ist erforderlich",
+      "message": "Nachricht ist erforderlich"
+    }
   },
-  "footer": "Fußzeile",
+  "footer": "Erstellt von Sebastian Tamayo",
   "project":{
-	  "title": "Projekten"
+          "title": "Projekten"
   }
 }

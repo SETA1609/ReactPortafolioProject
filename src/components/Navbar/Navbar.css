@@ -5,3 +5,8 @@ nav.navbar {
 .navbar-hidden {
   transform: translateY(-100%);
 }
+
+.lang-dropdown .dropdown-menu {
+  min-width: 4rem;
+}
+

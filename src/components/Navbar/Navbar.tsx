@@ -35,10 +35,10 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-  <div className="container">
     <nav
-      className={`navbar fixed-top navbar-${isDarkTheme ? 'dark' : 'light'} text-${isDarkTheme ? 'light' : 'dark'} navbar-expand-lg py-3 ${hidden ? 'navbar-hidden' : ''}`}>
-      <div className="container-fluid">
+      className={`navbar fixed-top navbar-${isDarkTheme ? 'dark' : 'light'} bg-${isDarkTheme ? 'dark' : 'light'} navbar-expand-lg py-3 ${hidden ? 'navbar-hidden' : ''}`}>
+      <div className="container">
+
         <ul className="navbar-nav me-auto mb-0 align-items-center flex-row flex-nowrap">
           {Icons.map((icon, index) => (
             <li key={index} className="nav-item me-3">
@@ -85,15 +85,16 @@ const Navbar: React.FC = () => {
                 {t('nav.toggleTheme')}
               </button>
             </li>
-            <li className="nav-item dropdown">
+            <li className="nav-item dropdown lang-dropdown">
               <button
-                className={`btn btn-${isDarkTheme ? 'light' : 'dark'} dropdown-toggle w-100 w-lg-auto my-1 my-lg-0`}
+                className={`btn btn-${isDarkTheme ? 'light' : 'dark'} btn-sm dropdown-toggle my-1 my-lg-0`}
+
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 {t(`nav.language.${language}`)}
               </button>
-              <ul className="dropdown-menu">
+              <ul className="dropdown-menu dropdown-menu-end">
                 {languages.map(lang => (
                   <li key={lang}>
                     <button className="dropdown-item text-center" onClick={() => setLanguage(lang)}>
@@ -105,10 +106,9 @@ const Navbar: React.FC = () => {
             </li>
           </ul>
         </div>
-      </div>
-    </nav>
         </div>
-  );
-};
+      </nav>
+    );
+  };
 
 export default Navbar;

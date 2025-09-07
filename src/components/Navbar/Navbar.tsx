@@ -93,6 +93,8 @@ const Navbar: React.FC = () => {
             </li>
             <li className="nav-item dropdown lang-dropdown w-lg-auto">
               <button
+                type="button"
+                data-testid="lang-toggle"
                 className={`btn btn-${isDarkTheme ? 'light' : 'dark'} w-100 w-lg-auto dropdown-toggle my-1 my-lg-0`}
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -102,7 +104,11 @@ const Navbar: React.FC = () => {
               <ul className="dropdown-menu dropdown-menu-end">
                 {languages.map(lang => (
                   <li key={lang}>
-                    <button className="dropdown-item text-center" onClick={() => setLanguage(lang)}>
+                    <button
+                      type="button"
+                      className="dropdown-item text-center"
+                      onClick={() => setLanguage(lang)}
+                    >
                       {languageFlags[lang]}
                     </button>
                   </li>

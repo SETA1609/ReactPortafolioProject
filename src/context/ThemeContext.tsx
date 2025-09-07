@@ -28,12 +28,10 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   );
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export function useTheme(): boolean {
   return useContext(ThemeContext);
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export function useThemeUpdate(): ThemeUpdateFunction {
   const context = useContext(ThemeUpdateContext);
   if (!context) {

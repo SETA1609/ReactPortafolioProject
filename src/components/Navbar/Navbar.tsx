@@ -45,6 +45,7 @@ const Navbar: React.FC = () => {
               <a
                 href={icon.url}
                 target="_blank"
+                rel="noreferrer"
                 className={`nav-link text-${isDarkTheme ? 'light' : 'dark'}`}
               >
                 <FontAwesomeIcon icon={icon.icon} />
@@ -85,10 +86,9 @@ const Navbar: React.FC = () => {
                 {t('nav.toggleTheme')}
               </button>
             </li>
-            <li className="nav-item dropdown lang-dropdown">
+            <li className="nav-item dropdown lang-dropdown w-100 w-lg-auto">
               <button
-                className={`btn btn-${isDarkTheme ? 'light' : 'dark'} btn my-lg-0 w-lg-auto dropdown-toggle my-1 my-lg-0`}
-
+                className={`btn btn-${isDarkTheme ? 'light' : 'dark'} w-100 w-lg-auto dropdown-toggle my-1 my-lg-0`}
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >

@@ -2,6 +2,8 @@
 .projects {
   min-height: 100vh;
   padding: 40px 0;
+  background-color: var(--projects-bg);
+  color: var(--text-color);
 }
 
 .card {

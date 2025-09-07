@@ -8,12 +8,15 @@ import './i18n';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <ThemeProvider>
-      <LanguageProvider>
-        <App />
-      </LanguageProvider>
-    </ThemeProvider>
-  </React.StrictMode>,
-)
+const container = document.getElementById('root');
+if (container) {
+  ReactDOM.createRoot(container).render(
+    <React.StrictMode>
+      <ThemeProvider>
+        <LanguageProvider>
+          <App />
+        </LanguageProvider>
+      </ThemeProvider>
+    </React.StrictMode>,
+  );
+}

@@ -1,6 +1,6 @@
 {
   "greeting": "Hallo, ich bin Sebastian!",
-  "description": "Informatikstudent und Fullstack-Entwickler mit Schwerpunkt auf Java- und JavaScript-Ökosystemen",
+  "description": "Erfahrener IT-Fachmann aus Kolumbien, der nun im deutschen IT-Sektor erfolgreich ist. Begann seine Karriere als IT-Support/Service Engineer in der Medientechnik und sammelte Erfahrung in Netzwerken, WLAN-Einrichtungen, Veranstaltungsbetreuung, Netzwerkkabelung, Wartung technischer Räume, Dateisicherungen und der Behebung technischer Probleme.\nAbsolvierte ein Java Full-Stack Developer Bootcamp bei Academic Work und Brights Learning und erwarb Kenntnisse in den Frameworks Spring und Angular, Backend-Entwicklung mit Java sowie Frontend-Fähigkeiten in CSS, HTML und JavaScript/TypeScript.\nDerzeit als Full Stack Engineer/DevOps tätig, spezialisiert auf Python, Angular, AWS, Terraform, Jira, GraphQL und One M2M-SIM für Netzwerklösungen. Verpflichtet zu kontinuierlicher Weiterentwicklung.\nStudiert derzeit Informatik im Fernstudium an der Universidad Remington in Kolumbien.\nKernkompetenzen: Python, Angular, AWS, Terraform, Jira, GraphQL, Java, Spring Boot, JavaScript, TypeScript, HTML, CSS, DevOps, Netzwerke, WLAN-Einrichtungen, Fehlersuche, Dateisicherungen, technische Wartung, Go (Golang) und React.",
   "nav": {
     "projects": "Projekte",
     "contact": "Kontakt",
@@ -34,6 +34,6 @@
   },
   "footer": "Erstellt von Sebastian Tamayo",
   "project":{
-          "title": "Projekten"
+          "title": "Projekte"
   }
 }

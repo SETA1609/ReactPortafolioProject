@@ -6,9 +6,7 @@ export type Language = 'en' | 'es' | 'de';
 const LanguageContext = createContext<Language>('en');
 const LanguageUpdateContext = createContext<((lang: Language) => void) | undefined>(undefined);
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useLanguage = (): Language => useContext(LanguageContext);
-// eslint-disable-next-line react-refresh/only-export-components
 export const useSetLanguage = () => {
   const setLanguage = useContext(LanguageUpdateContext);
   if (!setLanguage) {

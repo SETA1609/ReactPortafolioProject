@@ -1,6 +1,6 @@
 {
   "greeting": "Hi, I'm Sebastian!",
-  "description": "Systems engineering student and fullstack developer focused on the Java and JavaScript ecosystems",
+  "description": "Experienced IT professional originally from Colombia, now succeeding in the German IT sector. Began career as an IT Support/Service Engineer in media technology, gaining experience in networking, WLAN setups, event support, network patching, technical room maintenance, file backups, and troubleshooting technical issues.\nCompleted a Java Full-Stack Developer Bootcamp with Academic Work and Brights Learning, acquiring proficiency in Spring and Angular frameworks, backend development with Java, and frontend skills in CSS, HTML, and JavaScript/TypeScript.\nCurrently employed as a Full Stack Engineer/DevOps, specializing in Python, Angular, AWS, Terraform, Jira, GraphQL, and One M2M-SIM for network solutions. Committed to continuous skill development.\nPursuing a degree in Computer Science remotely at Universidad Remington in Colombia.\nKey skills include: Python, Angular, AWS, Terraform, Jira, GraphQL, Java, Spring Boot, JavaScript, TypeScript, HTML, CSS, DevOps, networking, WLAN setups, troubleshooting, file backups, technical maintenance, Go (Golang), and React.",
   "nav": {
     "projects": "Projects",
     "contact": "Contact me",

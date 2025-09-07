@@ -36,6 +36,7 @@ const ContactForm: React.FC = () => {
       if (success) {
         setToastMessage(`Thank you ${form.name}, your message was sent successfully!`);
         setToastType('success');
+        setForm({ name: '', email: '', type: 'hireMe', message: '' });
       } else {
         setToastMessage('There was an error sending your message.');
         setToastType('danger');
@@ -74,7 +75,7 @@ const ContactForm: React.FC = () => {
           {t('contact.submit')}
         </button>
       </form>
-      <div className='position-fixed bottom-0 end-0 p-3' style={{ zIndex: 11 }}>
+      <div className='position-fixed top-0 start-50 translate-middle-x p-3' style={{ zIndex: 11 }}>
         <div ref={toastRef} className={`toast align-items-center text-bg-${toastType} border-0`} role='alert' aria-live='assertive' aria-atomic='true'>
           <div className='d-flex'>
             <div className='toast-body'>{toastMessage}</div>

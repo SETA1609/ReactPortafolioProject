@@ -1,6 +1,6 @@
 {
   "greeting": "Hola, soy Sebastian!",
-  "description": "Un desarrollador fullstack especializado en Springboot, React, Angular y Django",
+  "description": "Estudiante de ingeniería de sistemas y desarrollador fullstack enfocado en los ecosistemas de Java y JavaScript",
   "nav": {
     "projects": "Proyectos",
     "contact": "Contáctame",
@@ -14,21 +14,26 @@
   "card": {
     "readMore": "Leer más"
   },
-  "contact": {
-	"title":"Contacta me!",
-    "name": "Nombre",
-    "email": "Correo",
-    "type": {
-      "hireMe": "Propuesta de proyecto freelance",
-      "openSource": "Sesión de consultoría de código abierto",
-      "other": "Otro",
-      "label":"Tipo de requesta"
+    "contact": {
+          "title":"Contacta me!",
+      "name": "Nombre",
+      "email": "Correo",
+      "type": {
+        "hireMe": "Propuesta de proyecto freelance",
+        "openSource": "Sesión de consultoría de código abierto",
+        "other": "Otro",
+        "label":"Tipo de requesta"
+      },
+      "message": "Tu mensaje",
+      "submit": "Enviar",
+      "errors": {
+        "name": "Nombre es obligatorio",
+        "email": "Correo válido es obligatorio",
+        "message": "Mensaje es obligatorio"
+      }
     },
-    "message": "Tu mensaje",
-    "submit": "Enviar"
-  },
-  "footer": "pie de página",
-  "project":{
-	  "title": "Projectos"
+    "footer": "Hecho por Sebastian Tamayo",
+    "project":{
+            "title": "Projectos"
+    }
   }
-}

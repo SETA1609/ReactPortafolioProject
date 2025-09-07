@@ -1,6 +1,6 @@
 {
   "greeting": "Hallo, ich bin Sebastian!",
-  "description": "Ein Fullstack-Entwickler spezialisiert auf Springboot, React, Angular und Django",
+  "description": "Informatikstudent und Fullstack-Entwickler mit Schwerpunkt auf Java- und JavaScript-Ökosystemen",
   "nav": {
     "projects": "Projekte",
     "contact": "Kontakt",
@@ -25,10 +25,15 @@
       "label": "Art der Anfrage"
     },
     "message": "Deine Nachricht",
-    "submit": "Senden"
+    "submit": "Senden",
+    "errors": {
+      "name": "Name ist erforderlich",
+      "email": "Gültige E-Mail ist erforderlich",
+      "message": "Nachricht ist erforderlich"
+    }
   },
-  "footer": "Fußzeile",
+  "footer": "Erstellt von Sebastian Tamayo",
   "project":{
-	  "title": "Projekten"
+          "title": "Projekten"
   }
 }

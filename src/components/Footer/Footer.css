@@ -2,4 +2,12 @@ footer {
   background-color: var(--footer-bg);
   color: var(--footer-color);
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  margin: 0;
+  text-align: center;
 }

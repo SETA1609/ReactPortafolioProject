@@ -1,6 +1,6 @@
 {
   "greeting": "Hi, I'm Sebastian!",
-  "description": "A fullstack developer specialized in Springboot, React, Angular and Django",
+  "description": "Systems engineering student and fullstack developer focused on the Java and JavaScript ecosystems",
   "nav": {
     "projects": "Projects",
     "contact": "Contact me",
@@ -15,7 +15,7 @@
     "readMore": "Read More"
   },
   "contact": {
-	"title":"Contact me!",
+        "title":"Contact me!",
     "name": "Name",
     "email": "Email",
     "type": {
@@ -25,10 +25,15 @@
       "other": "Other"
     },
     "message": "Your message",
-    "submit": "Submit"
+    "submit": "Submit",
+    "errors": {
+      "name": "Name is required",
+      "email": "Valid email is required",
+      "message": "Message is required"
+    }
   },
-  "footer": "footer",
+  "footer": "Made by Sebastian Tamayo",
   "project":{
-	  "title": "Projects"
+          "title": "Projects"
   }
 }

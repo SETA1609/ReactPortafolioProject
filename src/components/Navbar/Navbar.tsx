@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
             </li>
             <li className="nav-item dropdown lang-dropdown">
               <button
-                className={`btn btn-${isDarkTheme ? 'light' : 'dark'} btn-sm dropdown-toggle my-1 my-lg-0`}
+                className={`btn btn-${isDarkTheme ? 'light' : 'dark'} btn my-lg-0 w-lg-auto dropdown-toggle my-1 my-lg-0`}
 
                 data-bs-toggle="dropdown"
                 aria-expanded="false"

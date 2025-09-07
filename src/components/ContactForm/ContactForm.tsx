@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './ContactForm.css';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../context/ThemeContext';
+import { Toast } from 'bootstrap';
 
 const ContactForm: React.FC = () => {
   const { t } = useTranslation();
@@ -9,6 +10,9 @@ const ContactForm: React.FC = () => {
 
   const [form, setForm] = useState({ name: '', email: '', type: 'hireMe', message: '' });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const toastRef = useRef<HTMLDivElement>(null);
+  const [toastMessage, setToastMessage] = useState('');
+  const [toastType, setToastType] = useState<'success' | 'danger'>('success');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
@@ -28,7 +32,18 @@ const ContactForm: React.FC = () => {
     const newErrors = validate();
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
-      // Form submission logic goes here
+      const success = Math.random() > 0.5;
+      if (success) {
+        setToastMessage(`Thank you ${form.name}, your message was sent successfully!`);
+        setToastType('success');
+      } else {
+        setToastMessage('There was an error sending your message.');
+        setToastType('danger');
+      }
+      if (toastRef.current) {
+        const toast = new Toast(toastRef.current);
+        toast.show();
+      }
     }
   };
 
@@ -59,6 +74,14 @@ const ContactForm: React.FC = () => {
           {t('contact.submit')}
         </button>
       </form>
+      <div className='position-fixed bottom-0 end-0 p-3' style={{ zIndex: 11 }}>
+        <div ref={toastRef} className={`toast align-items-center text-bg-${toastType} border-0`} role='alert' aria-live='assertive' aria-atomic='true'>
+          <div className='d-flex'>
+            <div className='toast-body'>{toastMessage}</div>
+            <button type='button' className='btn-close btn-close-white me-2 m-auto' data-bs-dismiss='toast' aria-label='Close'></button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

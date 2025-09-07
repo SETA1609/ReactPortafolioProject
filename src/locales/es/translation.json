@@ -1,6 +1,6 @@
 {
   "greeting": "Hola, soy Sebastian!",
-  "description": "Estudiante de ingeniería de sistemas y desarrollador fullstack enfocado en los ecosistemas de Java y JavaScript",
+  "description": "Profesional de TI con experiencia originario de Colombia, ahora destacándome en el sector TI alemán. Comencé mi carrera como Ingeniero de Soporte/Servicio de TI en tecnología de medios, obteniendo experiencia en redes, configuraciones WLAN, soporte de eventos, parcheo de redes, mantenimiento de salas técnicas, copias de seguridad de archivos y resolución de problemas técnicos.\nCompleté un Bootcamp de Desarrollador Full Stack Java con Academic Work y Brights Learning, adquiriendo dominio en los frameworks Spring y Angular, desarrollo backend con Java y habilidades frontend en CSS, HTML y JavaScript/TypeScript.\nActualmente trabajo como Full Stack Engineer/DevOps, especializado en Python, Angular, AWS, Terraform, Jira, GraphQL y One M2M-SIM para soluciones de red. Comprometido con el desarrollo continuo de habilidades.\nCursando una licenciatura en Ciencias de la Computación de forma remota en la Universidad Remington en Colombia.\nHabilidades clave incluyen: Python, Angular, AWS, Terraform, Jira, GraphQL, Java, Spring Boot, JavaScript, TypeScript, HTML, CSS, DevOps, redes, configuraciones WLAN, resolución de problemas, copias de seguridad de archivos, mantenimiento técnico, Go (Golang) y React.",
   "nav": {
     "projects": "Proyectos",
     "contact": "Contáctame",
@@ -15,14 +15,14 @@
     "readMore": "Leer más"
   },
     "contact": {
-          "title":"Contacta me!",
+          "title":"¡Contáctame!",
       "name": "Nombre",
       "email": "Correo",
       "type": {
         "hireMe": "Propuesta de proyecto freelance",
         "openSource": "Sesión de consultoría de código abierto",
         "other": "Otro",
-        "label":"Tipo de requesta"
+        "label":"Tipo de solicitud"
       },
       "message": "Tu mensaje",
       "submit": "Enviar",
@@ -34,6 +34,6 @@
     },
     "footer": "Hecho por Sebastian Tamayo",
     "project":{
-            "title": "Projectos"
+            "title": "Proyectos"
     }
   }

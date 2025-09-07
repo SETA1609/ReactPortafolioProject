@@ -10,8 +10,8 @@ const LandingPage: React.FC = () => {
       <div className="d-flex flex-column align-items-center mb-3">
         <img src={photo} alt="My Photo" className="foto" />
       </div>
-      <p className='text-center'>{t('greeting')}</p>
-      <h1 className='text-center'>{t('description')}</h1>
+      <h1 className='text-center'>{t('greeting')}</h1>
+      <p className='text-center fs-4 ps-5 pe-5'>{t('description')}</p>
     </div>
   );
 };

@@ -22,7 +22,8 @@ const Projects: React.FC = () => {
     }, []);
 
     return (
-        <div className='projects container text-center' id='projects'>
+        <section className='projects text-center' id='projects'>
+        <div className='container'>
         <div className='fw-bold fs-1 pb-2'>{t('project.title')}</div>
             {loading ? (
                 <div className='d-flex justify-content-center py-5'>
@@ -43,6 +44,7 @@ const Projects: React.FC = () => {
             </div>
             )}
         </div>
+        </section>
     );
 };
 export default Projects;

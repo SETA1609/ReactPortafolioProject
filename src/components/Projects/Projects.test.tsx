@@ -3,6 +3,8 @@ import { render, screen, waitFor } from '@testing-library/react';
 import Projects from './Projects';
 import fetchProjectData from './ProjectsData';
 
+React;
+
 jest.mock('./ProjectsData');
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({ t: (key: string) => key })

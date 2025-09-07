@@ -8,6 +8,11 @@ import { useLanguage, useSetLanguage, Language } from '../../context/LanguageCon
 import './Navbar.css';
 
 const languages: Language[] = ['en', 'es', 'de'];
+const languageFlags: Record<Language, string> = {
+  en: '🇺🇸',
+  es: '🇪🇸',
+  de: '🇩🇪'
+};
 
 const Navbar: React.FC = () => {
   const { t } = useTranslation();
@@ -92,13 +97,13 @@ const Navbar: React.FC = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                {t(`nav.language.${language}`)}
+                {languageFlags[language]}
               </button>
               <ul className="dropdown-menu dropdown-menu-end">
                 {languages.map(lang => (
                   <li key={lang}>
                     <button className="dropdown-item text-center" onClick={() => setLanguage(lang)}>
-                      {t(`nav.language.${lang}`)}
+                      {languageFlags[lang]}
                     </button>
                   </li>
                 ))}

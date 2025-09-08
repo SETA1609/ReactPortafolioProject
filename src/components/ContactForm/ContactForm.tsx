@@ -18,17 +18,34 @@ const ContactForm: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
     setForm(prev => ({ ...prev, [id]: value }));
+    setErrors(prev => ({ ...prev, [id]: '' }));
+  };
+
+  const validateField = (id: string, value: string) => {
+    if (id === 'name' && !value.trim()) return t('contact.errors.required');
+    if (id === 'email') {
+      if (!value.trim()) return t('contact.errors.required');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return t('contact.errors.invalidEmail');
+    }
+    if (id === 'message') {
+      if (!value.trim()) return t('contact.errors.required');
+      if (value.trim().length < 25) return t('contact.errors.messageLength');
+    }
+    return '';
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { id, value } = e.target;
+    setErrors(prev => ({ ...prev, [id]: validateField(id, value) }));
   };
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
-    if (!form.name.trim()) newErrors.name = t('contact.errors.name');
-    if (!form.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) newErrors.email = t('contact.errors.email');
-    if (!form.message.trim()) {
-      newErrors.message = t('contact.errors.message');
-    } else if (form.message.trim().length < 25) {
-      newErrors.message = t('contact.errors.messageLength');
-    }
+    ['name', 'email', 'message'].forEach(field => {
+      const value = (form as any)[field];
+      const error = validateField(field, value);
+      if (error) newErrors[field] = error;
+    });
     return newErrors;
   };
 
@@ -62,11 +79,25 @@ const ContactForm: React.FC = () => {
       <form className='d-flex flex-column gap-3' onSubmit={handleSubmit} noValidate>
         <div className='fs-1'>{t('contact.title')}</div>
         <label htmlFor='name' className='form-label fw-bold mb-1'>{t('contact.name')}</label>
-        <input id='name' type='text' className='form-control' value={form.name} onChange={handleChange} />
+        <input
+          id='name'
+          type='text'
+          className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+          value={form.name}
+          onChange={handleChange}
+          onBlur={handleBlur}
+        />
         {errors.name && <div className='text-danger'>{errors.name}</div>}
 
         <label htmlFor='email' className='form-label fw-bold mb-1'>{t('contact.email')}</label>
-        <input id='email' type='email' className='form-control' value={form.email} onChange={handleChange} />
+        <input
+          id='email'
+          type='email'
+          className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+          value={form.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+        />
         {errors.email && <div className='text-danger'>{errors.email}</div>}
 
         <label htmlFor='type' className='form-label fw-bold mb-1'>{t('contact.type.label')}</label>
@@ -77,7 +108,13 @@ const ContactForm: React.FC = () => {
         </select>
 
         <label htmlFor='message' className='form-label fw-bold mb-1'>{t('contact.message')}</label>
-        <textarea id='message' className='form-control' value={form.message} onChange={handleChange}></textarea>
+        <textarea
+          id='message'
+          className={`form-control ${errors.message ? 'is-invalid' : ''}`}
+          value={form.message}
+          onChange={handleChange}
+          onBlur={handleBlur}
+        ></textarea>
         {errors.message && <div className='text-danger'>{errors.message}</div>}
 
         <button type='submit' className={`btn btn-${isDarkTheme ? 'light' : 'dark'} mt-2`} disabled={submitting}>

@@ -27,9 +27,8 @@
     "message": "Deine Nachricht",
     "submit": "Senden",
     "errors": {
-      "name": "Name ist erforderlich",
-      "email": "Gültige E-Mail ist erforderlich",
-      "message": "Nachricht ist erforderlich",
+      "required": "Erforderlich",
+      "invalidEmail": "Ungültige E-Mail-Adresse",
       "messageLength": "Muss mindestens 25 Zeichen lang sein"
     }
   },

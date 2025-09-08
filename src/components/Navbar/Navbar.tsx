@@ -26,6 +26,7 @@ const Navbar: React.FC = () => {
 
   const [showLangMenu, setShowLangMenu] = useState(false);
   const dropdownRef = useRef<HTMLLIElement>(null);
+  const [navOpen, setNavOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,6 +57,7 @@ const Navbar: React.FC = () => {
   const handleLanguageChange = (lang: Language) => {
     setLanguage(lang);
     setShowLangMenu(false);
+    setNavOpen(false);
   };
 
   return (
@@ -81,22 +83,21 @@ const Navbar: React.FC = () => {
         <button
           className="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
+          onClick={() => setNavOpen(prev => !prev)}
+          aria-expanded={navOpen}
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <div className={`navbar-collapse ${navOpen ? 'show' : 'collapse'} justify-content-end`} id="navbarNav">
           <ul className="navbar-nav mb-0 align-items-lg-center d-flex gap-2">
             {InnerLinks.map((link, index) => (
               <li key={index} className="nav-item">
                 <a
                   href={link.url}
                   className={`btn btn-${isDarkTheme ? 'light' : 'dark'} w-100 w-lg-auto my-1 my-lg-0`}
+                  onClick={() => setNavOpen(false)}
                 >
                   {t(`nav.${link.key}`)}
                 </a>
@@ -105,7 +106,7 @@ const Navbar: React.FC = () => {
             <li className="nav-item">
               <button
                 className={`btn btn-${isDarkTheme ? 'light' : 'dark'} w-100 w-lg-auto my-1 my-lg-0`}
-                onClick={toggleTheme}
+                onClick={() => { toggleTheme(); setNavOpen(false); }}
               >
                 {t('nav.toggleTheme')}
               </button>

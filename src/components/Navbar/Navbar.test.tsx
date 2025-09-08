@@ -41,4 +41,28 @@ describe('Navbar language selector', () => {
 
     expect(toggle).toHaveTextContent(flag);
   });
+
+  it('toggles menu visibility with navbar toggler and closes after link click', async () => {
+    const user = userEvent.setup();
+    render(
+      <ThemeProvider>
+        <LanguageProvider>
+          <Navbar />
+        </LanguageProvider>
+      </ThemeProvider>
+    );
+
+    const toggler = screen.getByLabelText(/toggle navigation/i);
+    const menu = document.getElementById('navbarNav');
+
+    expect(menu).toHaveClass('collapse');
+
+    await user.click(toggler);
+    expect(menu).toHaveClass('show');
+
+    const firstLink = screen.getByRole('link', { name: 'nav.projects' });
+    await user.click(firstLink);
+
+    expect(menu).toHaveClass('collapse');
+  });
 });

@@ -5,6 +5,8 @@ import ContactForm from './ContactForm';
 import { ThemeProvider } from '../../context/ThemeContext';
 import { LanguageProvider } from '../../context/LanguageContext';
 
+void React;
+
 jest.mock('bootstrap', () => ({
   Toast: jest.fn().mockImplementation(() => ({ show: jest.fn() }))
 }));

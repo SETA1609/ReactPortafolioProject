@@ -13,6 +13,7 @@ const ContactForm: React.FC = () => {
   const toastRef = useRef<HTMLDivElement>(null);
   const [toastMessage, setToastMessage] = useState('');
   const [toastType, setToastType] = useState<'success' | 'danger'>('success');
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
@@ -23,7 +24,11 @@ const ContactForm: React.FC = () => {
     const newErrors: { [key: string]: string } = {};
     if (!form.name.trim()) newErrors.name = t('contact.errors.name');
     if (!form.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) newErrors.email = t('contact.errors.email');
-    if (!form.message.trim()) newErrors.message = t('contact.errors.message');
+    if (!form.message.trim()) {
+      newErrors.message = t('contact.errors.message');
+    } else if (form.message.trim().length < 25) {
+      newErrors.message = t('contact.errors.messageLength');
+    }
     return newErrors;
   };
 
@@ -32,19 +37,23 @@ const ContactForm: React.FC = () => {
     const newErrors = validate();
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
-      const success = Math.random() > 0.5;
-      if (success) {
-        setToastMessage(`Thank you ${form.name}, your message was sent successfully!`);
-        setToastType('success');
-        setForm({ name: '', email: '', type: 'hireMe', message: '' });
-      } else {
-        setToastMessage('There was an error sending your message.');
-        setToastType('danger');
-      }
-      if (toastRef.current) {
-        const toast = new Toast(toastRef.current);
-        toast.show();
-      }
+      setSubmitting(true);
+      setTimeout(() => {
+        const success = Math.random() > 0.5;
+        if (success) {
+          setToastMessage(`Thank you ${form.name}, your message was sent successfully!`);
+          setToastType('success');
+          setForm({ name: '', email: '', type: 'hireMe', message: '' });
+        } else {
+          setToastMessage('There was an error sending your message.');
+          setToastType('danger');
+        }
+        setSubmitting(false);
+        if (toastRef.current) {
+          const toast = new Toast(toastRef.current);
+          toast.show();
+        }
+      }, 1000);
     }
   };
 
@@ -71,8 +80,17 @@ const ContactForm: React.FC = () => {
         <textarea id='message' className='form-control' value={form.message} onChange={handleChange}></textarea>
         {errors.message && <div className='text-danger'>{errors.message}</div>}
 
-        <button type='submit' className={`btn btn-${isDarkTheme ? 'light' : 'dark'} mt-2`}>
-          {t('contact.submit')}
+        <button type='submit' className={`btn btn-${isDarkTheme ? 'light' : 'dark'} mt-2`} disabled={submitting}>
+          {submitting ? (
+            <span
+              className="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+              data-testid="loading-spinner"
+            ></span>
+          ) : (
+            t('contact.submit')
+          )}
         </button>
       </form>
       <div className='position-fixed top-0 start-50 translate-middle-x p-3' style={{ zIndex: 11 }}>

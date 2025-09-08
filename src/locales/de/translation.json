@@ -29,7 +29,8 @@
     "errors": {
       "name": "Name ist erforderlich",
       "email": "Gültige E-Mail ist erforderlich",
-      "message": "Nachricht ist erforderlich"
+      "message": "Nachricht ist erforderlich",
+      "messageLength": "Muss mindestens 25 Zeichen lang sein"
     }
   },
   "footer": "Erstellt von Sebastian Tamayo",

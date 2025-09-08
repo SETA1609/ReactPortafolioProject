@@ -16,6 +16,26 @@ jest.mock('../../i18n', () => ({
   default: { changeLanguage: jest.fn() }
 }));
 
+describe('Navbar social links', () => {
+  it('renders five external social links that open in a new tab', () => {
+    render(
+      <ThemeProvider>
+        <LanguageProvider>
+          <Navbar />
+        </LanguageProvider>
+      </ThemeProvider>
+    );
+
+    const externalLinks = screen
+      .getAllByRole('link')
+      .filter(link => link.getAttribute('target') === '_blank');
+    expect(externalLinks).toHaveLength(5);
+    externalLinks.forEach(link => {
+      expect(link).toHaveAttribute('rel', 'noreferrer');
+    });
+  });
+});
+
 describe('Navbar language selector', () => {
   beforeEach(() => {
     localStorage.clear();

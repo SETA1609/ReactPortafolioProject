@@ -24,6 +24,9 @@ const Navbar: React.FC = () => {
   const [hidden, setHidden] = useState(false);
   const lastScrollY = useRef(0);
 
+  const [showLangMenu, setShowLangMenu] = useState(false);
+  const dropdownRef = useRef<HTMLLIElement>(null);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
@@ -38,6 +41,22 @@ const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setShowLangMenu(false);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
+
+  const toggleLangMenu = () => setShowLangMenu(prev => !prev);
+  const handleLanguageChange = (lang: Language) => {
+    setLanguage(lang);
+    setShowLangMenu(false);
+  };
 
   return (
     <nav
@@ -91,23 +110,23 @@ const Navbar: React.FC = () => {
                 {t('nav.toggleTheme')}
               </button>
             </li>
-            <li className="nav-item dropdown lang-dropdown w-lg-auto">
+            <li className="nav-item dropdown lang-dropdown w-lg-auto" ref={dropdownRef}>
               <button
                 type="button"
                 data-testid="lang-toggle"
                 className={`btn btn-${isDarkTheme ? 'light' : 'dark'} w-100 w-lg-auto dropdown-toggle my-1 my-lg-0`}
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+                onClick={toggleLangMenu}
+                aria-expanded={showLangMenu}
               >
                 {languageFlags[language]}
               </button>
-              <ul className="dropdown-menu dropdown-menu-end">
+              <ul className={`dropdown-menu dropdown-menu-end ${showLangMenu ? 'show' : ''}`}>
                 {languages.map(lang => (
                   <li key={lang}>
                     <button
                       type="button"
                       className="dropdown-item text-center"
-                      onClick={() => setLanguage(lang)}
+                      onClick={() => handleLanguageChange(lang)}
                     >
                       {languageFlags[lang]}
                     </button>

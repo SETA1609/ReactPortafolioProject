@@ -15,7 +15,14 @@ jest.mock('../../i18n', () => ({
 }));
 
 describe('Navbar language selector', () => {
-  it('updates language flag when a new language is selected', async () => {
+  beforeEach(() => {
+    localStorage.clear();
+  });
+
+  it.each([
+    ['🇪🇸'],
+    ['🇩🇪']
+  ])('updates language flag when %s is selected', async flag => {
     const user = userEvent.setup();
     render(
       <ThemeProvider>
@@ -29,9 +36,9 @@ describe('Navbar language selector', () => {
     expect(toggle).toHaveTextContent('🇺🇸');
 
     await user.click(toggle);
-    const spanish = screen.getByRole('button', { name: '🇪🇸' });
-    await user.click(spanish);
+    const option = screen.getByRole('button', { name: flag });
+    await user.click(option);
 
-    expect(toggle).toHaveTextContent('🇪🇸');
+    expect(toggle).toHaveTextContent(flag);
   });
 });

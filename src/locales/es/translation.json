@@ -29,7 +29,8 @@
       "errors": {
         "name": "Nombre es obligatorio",
         "email": "Correo válido es obligatorio",
-        "message": "Mensaje es obligatorio"
+        "message": "Mensaje es obligatorio",
+        "messageLength": "Debe tener al menos 25 caracteres"
       }
     },
     "footer": "Hecho por Sebastian Tamayo",

@@ -1,6 +1,6 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin, faStackOverflow, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 interface SocialIcon {
   icon: IconDefinition;
@@ -19,6 +19,10 @@ const Icons: SocialIcon[] = [
   {
     icon: faStackOverflow,
     url: "https://stackoverflow.com/users/22202650/seta1609",
+  },
+  {
+    icon: faTwitter,
+    url: "https://twitter.com/SETA1609",
   },
   {
     icon: faEnvelope,

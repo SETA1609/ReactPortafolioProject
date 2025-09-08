@@ -29,7 +29,8 @@
     "errors": {
       "name": "Name is required",
       "email": "Valid email is required",
-      "message": "Message is required"
+      "message": "Message is required",
+      "messageLength": "Must be at least 25 characters"
     }
   },
   "footer": "Made by Sebastian Tamayo",

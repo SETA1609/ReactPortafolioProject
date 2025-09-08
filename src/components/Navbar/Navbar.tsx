@@ -96,7 +96,7 @@ const Navbar: React.FC = () => {
               <li key={index} className="nav-item">
                 <a
                   href={link.url}
-                  className={`btn btn-${isDarkTheme ? 'light' : 'dark'} w-100 w-lg-auto my-1 my-lg-0`}
+                  className={`btn btn-${isDarkTheme ? 'light' : 'dark'} w-100 w-lg-auto my-1 my-lg-0 nav-btn`}
                   onClick={() => setNavOpen(false)}
                 >
                   {t(`nav.${link.key}`)}
@@ -105,8 +105,11 @@ const Navbar: React.FC = () => {
             ))}
             <li className="nav-item">
               <button
-                className={`btn btn-${isDarkTheme ? 'light' : 'dark'} w-100 w-lg-auto my-1 my-lg-0`}
-                onClick={() => { toggleTheme(); setNavOpen(false); }}
+                className={`btn btn-${isDarkTheme ? 'light' : 'dark'} w-100 w-lg-auto my-1 my-lg-0 nav-btn`}
+                onClick={() => {
+                  toggleTheme();
+                  setNavOpen(false);
+                }}
               >
                 {t('nav.toggleTheme')}
               </button>
@@ -115,7 +118,7 @@ const Navbar: React.FC = () => {
               <button
                 type="button"
                 data-testid="lang-toggle"
-                className={`btn btn-${isDarkTheme ? 'light' : 'dark'} w-100 w-lg-auto dropdown-toggle my-1 my-lg-0`}
+                className={`btn btn-${isDarkTheme ? 'light' : 'dark'} w-100 w-lg-auto dropdown-toggle my-1 my-lg-0 nav-btn`}
                 onClick={toggleLangMenu}
                 aria-expanded={showLangMenu}
               >
@@ -137,9 +140,9 @@ const Navbar: React.FC = () => {
             </li>
           </ul>
         </div>
-        </div>
-      </nav>
-    );
-  };
+      </div>
+    </nav>
+  );
+};
 
 export default Navbar;

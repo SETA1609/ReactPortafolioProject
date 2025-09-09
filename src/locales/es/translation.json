@@ -27,9 +27,8 @@
       "message": "Tu mensaje",
       "submit": "Enviar",
       "errors": {
-        "name": "Nombre es obligatorio",
-        "email": "Correo válido es obligatorio",
-        "message": "Mensaje es obligatorio",
+        "required": "Requerido",
+        "invalidEmail": "Correo electrónico inválido",
         "messageLength": "Debe tener al menos 25 caracteres"
       }
     },

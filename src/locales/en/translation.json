@@ -27,9 +27,8 @@
     "message": "Your message",
     "submit": "Submit",
     "errors": {
-      "name": "Name is required",
-      "email": "Valid email is required",
-      "message": "Message is required",
+      "required": "Required",
+      "invalidEmail": "Invalid email address",
       "messageLength": "Must be at least 25 characters"
     }
   },

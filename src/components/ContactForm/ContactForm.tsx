@@ -8,7 +8,14 @@ const ContactForm: React.FC = () => {
   const { t } = useTranslation();
   const isDarkTheme = useTheme();
 
-  const [form, setForm] = useState({ name: '', email: '', type: 'hireMe', message: '' });
+  interface FormState {
+    name: string;
+    email: string;
+    type: 'hireMe' | 'openSource' | 'other';
+    message: string;
+  }
+
+  const [form, setForm] = useState<FormState>({ name: '', email: '', type: 'hireMe', message: '' });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const toastRef = useRef<HTMLDivElement>(null);
   const [toastMessage, setToastMessage] = useState('');
@@ -41,9 +48,9 @@ const ContactForm: React.FC = () => {
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
-    ['name', 'email', 'message'].forEach(field => {
-      const value = (form as any)[field];
-      const error = validateField(field, value);
+    const fields: Array<keyof FormState> = ['name', 'email', 'message'];
+    fields.forEach(field => {
+      const error = validateField(field, form[field]);
       if (error) newErrors[field] = error;
     });
     return newErrors;
